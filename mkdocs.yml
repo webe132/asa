@@ -1,5 +1,11 @@
-site_name: Правила Клана
-theme: material
+site_name: Название Твоего Клана
+theme:
+  name: material
+  palette: 
+    scheme: slate # Темная тема
+    primary: black
+
 nav:
   - Главная: index.md
-  - Устав: rules.md
+  - Правила: rules.md
+
