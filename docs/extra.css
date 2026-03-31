@@ -1,29 +1,44 @@
-[data-md-color-scheme="slate"] .md-content,
-[data-md-color-scheme="slate"] .md-main {
-    background-color: #121212; 
-}
-
-[data-md-color-scheme="slate"] .md-header,
-[data-md-color-scheme="slate"] .md-sidebar,
-[data-md-color-scheme="slate"] .md-footer {
-    background-color: #212121; 
-}
-
+/* Основные настройки темной темы (Slate) */
 [data-md-color-scheme="slate"] {
-    --md-default-fg-color: #D2D2D2;
-    --md-default-fg-color--light: #D2D2D2;
-    --md-typeset-color: #D2D2D2;
+    /* Фон основной области */
+    --md-default-bg-color:        #161618; 
+    --md-default-bg-color--light: #1b1b1d;
+
+    /* Цвета текста */
+    --md-default-fg-color:        #D2D2D2;
+    --md-default-fg-color--light: #A0A0A0; /* Для второстепенного текста */
+    --md-typeset-color:           #D2D2D2;
+
+    /* Цвет шапки и боковых панелей (чуть светлее для объема, как в оригинале) */
+    --md-primary-fg-color:        #1b1b1d; 
+    --md-primary-fg-color--dark:  #121212;
 }
 
+/* Настройка шрифтов для заголовоков */
 [data-md-color-scheme="slate"] .md-typeset h1, 
 [data-md-color-scheme="slate"] .md-typeset h2, 
 [data-md-color-scheme="slate"] .md-typeset h3 {
-    color: #D2D2D2;
+    color: #FFFFFF; /* Заголовки лучше делать чуть ярче основного текста */
 }
 
+/* Убираем лишние тени и границы для минимализма */
 .md-header {
     box-shadow: none !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Тонкая линия вместо тени */
 }
-.md-sidebar {
-    background-color: #212121;
+
+/* Исправляем фон сайдбаров и контента напрямую, если переменные не подцепились */
+[data-md-color-scheme="slate"] .md-header,
+[data-md-color-scheme="slate"] .md-sidebar,
+[data-md-color-scheme="slate"] .md-footer {
+    background-color: #1b1b1d !important;
+}
+
+[data-md-color-scheme="slate"] .md-content {
+    background-color: #161618 !important;
+}
+
+/* Убираем жирную черную полосу под вкладками навигации */
+.md-tabs {
+    background-color: #1b1b1d !important;
 }
