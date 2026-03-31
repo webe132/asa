@@ -94,28 +94,43 @@
     margin: 0 auto;
 }
 
-.md-sidebar--primary .md-nav__title[for="__drawer"] {
-    font-size: 0;
+/* ОГРАНИЧИВАЕМ КАСТОМНЫЕ СТИЛИ МЕНЮ ТОЛЬКО ДЛЯ ПК */
+@media screen and (min-width: 76.25em) {
+    .md-sidebar--primary .md-nav__title[for="__drawer"] {
+        font-size: 0;
+    }
+
+    .md-sidebar--primary .md-nav__title[for="__drawer"]::before {
+        content: "Правила";
+        font-size: 0.8rem;
+        color: #FFFFFF;
+        font-weight: 700;
+    }
+
+    .md-sidebar--secondary .md-nav__title {
+        margin-bottom: 1.5rem !important;
+    }
+
+    .md-sidebar--secondary .md-nav__link--active {
+        background-color: rgba(125, 37, 37, 0.1) !important;
+        color: #B43535 !important;
+        border-left: none !important; 
+        border-radius: 4px !important; 
+        padding-left: 0.5rem !important;
+        padding-right: 0.5rem !important;
+    }
 }
 
-.md-sidebar--primary .md-nav__title[for="__drawer"]::before {
-    content: "Правила";
-    font-size: 0.8rem;
-    color: #FFFFFF;
-    font-weight: 700;
-}
-
-.md-sidebar--secondary .md-nav__title {
-    margin-bottom: 1.5rem !important;
-}
-
-.md-sidebar--secondary .md-nav__link--active {
-    background-color: rgba(125,	37,	37, 0.1) !important;
-    color: #B43535 !important;
-    border-left: none !important; /* Убираем палку слева, чтобы прямоугольник был ровным */
-    border-radius: 4px !important; /* Скругляем все 4 угла */
-    padding-left: 0.5rem !important;
-    padding-right: 0.5rem !important;
+/* ФИКС ДЛЯ МОБИЛОК (Сброс наложений) */
+@media screen and (max-width: 76.24em) {
+    .md-sidebar--primary .md-nav__title[for="__drawer"] {
+        font-size: 1rem !important; 
+        line-height: normal !important;
+    }
+    
+    .md-sidebar--primary .md-nav__title[for="__drawer"]::before {
+        content: "" !important; 
+    }
 }
 
 .md-sidebar--secondary .md-nav__link {
