@@ -1,61 +1,72 @@
-/* --- ЦВЕТОВАЯ СХЕМА --- */
+/* --- СХЕМА ЦВЕТОВ --- */
 [data-md-color-scheme="slate"] {
-    --md-default-bg-color:        #161618; 
-    --md-default-bg-color--light: #1b1b1d;
+    --md-default-bg-color:        #121214; /* Цвет со скрина */
+    --md-default-bg-color--light: #121214;
     --md-default-fg-color:        #D2D2D2;
     --md-typeset-color:           #D2D2D2;
+    --md-primary-fg-color:        #1b1b1d; 
 }
 
-/* --- ТЕКСТ --- */
+/* --- ТЕКСТ И ШРИФТЫ --- */
 :root {
-    --md-text-font-size: 0.72rem;
+    --md-text-font-size: 0.72rem; /* Сделал еще чуть меньше для компактности */
 }
+
 .md-typeset {
     font-size: 0.72rem;
     line-height: 1.5;
 }
-.md-typeset h1 { font-size: 1.2rem; font-weight: 700; color: #FFFFFF; }
 
-/* --- УБИРАЕМ ФЕЙД (МАСКУ) ВЕЗДЕ --- */
-.md-sidebar__inner, .md-nav, .md-nav__list, .md-nav__item {
+.md-typeset h1 { font-size: 1.25rem; font-weight: 700; color: #FFFFFF; }
+.md-typeset h2 { font-size: 1.05rem; font-weight: 700; color: #FFFFFF; }
+
+/* --- ТОТАЛЬНОЕ УДАЛЕНИЕ ФЕЙДА (МАСКИ) --- */
+.md-sidebar__inner, 
+.md-nav, 
+.md-nav__list,
+.md-nav__item {
     mask-image: none !important;
     -webkit-mask-image: none !important;
+}
+
+/* Убираем градиентные тени, которые тема ставит сверху и снизу меню */
+.md-nav--integrated .md-nav__list, 
+.md-sidebar__inner {
     box-shadow: none !important;
 }
 
-/* --- СКРЫВАЕМ ПРЯМОУГОЛЬНИКИ НА ГЛАВНОЙ --- */
-/* MkDocs вешает аттрибут [data-md-main-steps] или можно через заголовок. 
-   Самый надежный способ для главной (index.md) — скрыть сайдбары, если это не подстраница */
+/* --- ФИКС ПРЯМОУГОЛЬНИКОВ (САЙДБАРОВ) --- */
 
-[data-md-color-scheme="slate"] .md-sidebar {
+/* Левый и правый блоки теперь имеют четкий фон без вылетов */
+[data-md-color-scheme="slate"] .md-sidebar--primary, 
+[data-md-color-scheme="slate"] .md-sidebar--secondary {
     background-color: #1b1b1d !important;
 }
 
-/* Если страница — Главная (обычно у неё нет вложенности в URL или класс .md-main) */
-.template-index .md-sidebar {
-    display: none !important;
-}
-
-/* Растягиваем контент на главной на всю ширину, раз сайдбаров нет */
-.template-index .md-content {
-    max-width: 100% !important;
-    margin: 0 auto;
-}
-
-/* --- ОФОРМЛЕНИЕ САЙДБАРОВ ДЛЯ ВИКИ --- */
+/* Растягиваем внутреннюю часть, чтобы фон не обрывался */
 .md-sidebar__inner {
     background-color: #1b1b1d !important;
     margin: 0 !important;
-    padding: 0.4rem !important;
-    border-radius: 4px;
+    padding: 0.5rem;
 }
 
-/* --- ШАПКА --- */
+/* Центрируем основной контент и убираем лишние зазоры между ним и сайдбарами */
+.md-content {
+    max-width: 100% !important;
+}
+
+/* --- ШАПКА И ВКЛАДКИ --- */
 .md-header {
     box-shadow: none !important;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     background-color: #1b1b1d !important;
 }
+
 .md-tabs {
     background-color: #1b1b1d !important;
+}
+
+/* Убираем полоску под активной вкладкой */
+.md-tabs__link--active {
+    border-bottom: none !important;
 }
