@@ -11,3 +11,5 @@ theme:
 nav:
   - Главная: index.md
   - Правила: rules.md
+extra_css:
+  - extra.css
