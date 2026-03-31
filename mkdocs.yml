@@ -27,6 +27,7 @@ nav:
           - Клан: rules/clan.md
       - Роли: roles.md
       - ARC: arc.md
+      
 markdown_extensions:
   - admonition
   - pymdownx.details
