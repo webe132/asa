@@ -108,3 +108,25 @@
 .md-sidebar--secondary .md-nav__title {
     margin-bottom: 1.5rem !important;
 }
+
+.md-sidebar--secondary .md-nav__link--active {
+    background-color: rgba(16, 185, 129, 0.1) !important;
+    color: #10B981 !important;
+    border-left: 2px solid #10B981;
+    border-radius: 0 4px 4px 0;
+    padding-left: 0.5rem !important;
+}
+
+.md-sidebar--secondary .md-nav__link {
+    transition: all 0.2s ease;
+    border-left: 2px solid transparent;
+}
+
+.md-sidebar--secondary .md-nav__link:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #FFFFFF;
+}
+
+.md-sidebar--secondary .md-nav__title {
+    margin-bottom: 1.2rem !important;
+}
