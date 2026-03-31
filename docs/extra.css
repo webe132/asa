@@ -1,73 +1,61 @@
-/* --- ГЛОБАЛЬНЫЕ НАСТРОЙКИ ЦВЕТОВ (SLATE) --- */
+/* --- ЦВЕТОВАЯ СХЕМА --- */
 [data-md-color-scheme="slate"] {
     --md-default-bg-color:        #161618; 
     --md-default-bg-color--light: #1b1b1d;
     --md-default-fg-color:        #D2D2D2;
-    --md-default-fg-color--light: #A0A0A0;
     --md-typeset-color:           #D2D2D2;
-    --md-primary-fg-color:        #1b1b1d; 
-    --md-primary-fg-color--dark:  #121212;
 }
 
-/* --- ШРИФТЫ И РАЗМЕРЫ ТЕКСТА --- */
+/* --- ТЕКСТ --- */
 :root {
-    --md-text-font-size: 0.75rem; /* Компактный шрифт */
+    --md-text-font-size: 0.72rem;
 }
-
 .md-typeset {
-    font-size: 0.75rem;
-    line-height: 1.6;
+    font-size: 0.72rem;
+    line-height: 1.5;
 }
+.md-typeset h1 { font-size: 1.2rem; font-weight: 700; color: #FFFFFF; }
 
-/* Настройка заголовков (без смайлов, жирные) */
-[data-md-color-scheme="slate"] .md-typeset h1, 
-[data-md-color-scheme="slate"] .md-typeset h2, 
-[data-md-color-scheme="slate"] .md-typeset h3 {
-    color: #FFFFFF;
-    font-weight: 700;
-}
-
-.md-typeset h1 { font-size: 1.3rem; }
-.md-typeset h2 { font-size: 1.1rem; }
-
-/* --- ИСПРАВЛЕНИЕ ФЕЙДА И БОКОВЫХ ПАНЕЛЕЙ --- */
-
-/* Полностью отключаем маски затухания (фейд) */
-.md-sidebar__inner, 
-.md-nav {
+/* --- УБИРАЕМ ФЕЙД (МАСКУ) ВЕЗДЕ --- */
+.md-sidebar__inner, .md-nav, .md-nav__list, .md-nav__item {
     mask-image: none !important;
     -webkit-mask-image: none !important;
-    background-color: transparent !important;
+    box-shadow: none !important;
 }
 
-/* Растягиваем прямоугольники боковых меню на всю высоту */
+/* --- СКРЫВАЕМ ПРЯМОУГОЛЬНИКИ НА ГЛАВНОЙ --- */
+/* MkDocs вешает аттрибут [data-md-main-steps] или можно через заголовок. 
+   Самый надежный способ для главной (index.md) — скрыть сайдбары, если это не подстраница */
+
 [data-md-color-scheme="slate"] .md-sidebar {
     background-color: #1b1b1d !important;
-    height: 100%;
 }
 
-/* Убираем тени и лишние отступы */
+/* Если страница — Главная (обычно у неё нет вложенности в URL или класс .md-main) */
+.template-index .md-sidebar {
+    display: none !important;
+}
+
+/* Растягиваем контент на главной на всю ширину, раз сайдбаров нет */
+.template-index .md-content {
+    max-width: 100% !important;
+    margin: 0 auto;
+}
+
+/* --- ОФОРМЛЕНИЕ САЙДБАРОВ ДЛЯ ВИКИ --- */
+.md-sidebar__inner {
+    background-color: #1b1b1d !important;
+    margin: 0 !important;
+    padding: 0.4rem !important;
+    border-radius: 4px;
+}
+
+/* --- ШАПКА --- */
 .md-header {
     box-shadow: none !important;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.md-sidebar--primary, 
-.md-sidebar--secondary {
     background-color: #1b1b1d !important;
 }
-
-/* Фикс для контента и вкладок */
-[data-md-color-scheme="slate"] .md-content {
-    background-color: #161618 !important;
-}
-
-.md-tabs, .md-footer {
+.md-tabs {
     background-color: #1b1b1d !important;
-    box-shadow: none !important;
-}
-
-/* Убираем жирную линию под активной вкладкой */
-.md-tabs__link--active {
-    color: #D2D2D2 !important;
 }
