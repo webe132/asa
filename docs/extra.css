@@ -4,7 +4,7 @@
     --md-default-fg-color:        #9CA3AF; 
     --md-default-fg-color--light: #6B7280;
     --md-typeset-color:           #9CA3AF;
-    --md-accent-fg-color:         #10B981;
+    --md-accent-fg-color:         #B43535;
     --md-primary-fg-color:        #121214 !important;
 }
 
@@ -27,7 +27,7 @@
 .md-typeset h2 { font-size: 1.1rem; }
 
 .md-typeset a {
-    color: #10B981 !important;
+    color: #B43535 !important;
     text-decoration: none;
 }
 
@@ -80,7 +80,7 @@
 }
 
 .md-nav__link--active {
-    color: #10B981 !important;
+    color: #B43535 !important;
     font-weight: 700;
 }
 
